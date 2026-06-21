@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · 易游体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'SimSun', serif;
+            color: #2e2b28;
+            line-height: 1.7;
+            padding: 2.5rem 1.2rem;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 251, 245, 0.7);
+            padding: 2rem 2.4rem;
+            border-radius: 28px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.8rem; }
+            .page { padding: 1.6rem 1.2rem; border-radius: 18px; }
+        }
+
+        /* 主视觉 */
+        .hero {
+            text-align: center;
+            padding: 1.4rem 0 2.2rem 0;
+            border-bottom: 1px solid #e6ddd0;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #3e3a35;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            color: #7a6f62;
+            font-size: 1rem;
+            border-top: 1px dashed #d6ccbe;
+            display: inline-block;
+            padding-top: 0.6rem;
+            margin-top: 0.2rem;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin: 2.2rem 0 2.6rem 0;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+        }
+
+        .card {
+            background: #fffffffa;
+            border-radius: 22px;
+            padding: 1.6rem 1.4rem 1.8rem 1.4rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #ede7dd;
+        }
+
+        .card h3 {
+            font-weight: 500;
+            font-size: 1.25rem;
+            color: #4b443b;
+            border-left: 4px solid #c1b09a;
+            padding-left: 0.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .card ul, .card p {
+            font-size: 0.95rem;
+            color: #3f3a33;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .card ul li {
+            padding: 0.25rem 0 0.25rem 1.4rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #b8a68b;
+            font-weight: bold;
+        }
+
+        .card.attention {
+            background: #f7f2e9;
+            border-left: 4px solid #b8a68b;
+        }
+
+        /* 引用块 / 提示框 */
+        .note-block {
+            background: #ede7db;
+            padding: 1.4rem 1.8rem;
+            border-radius: 30px 12px 30px 12px;
+            margin: 2rem 0 2.2rem 0;
+            color: #3d3730;
+            border: 1px solid #dad0bf;
+        }
+
+        .note-block strong {
+            color: #5c5144;
+            font-weight: 600;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 2.4rem 0 1.8rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .faq-mini h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: #4d453c;
+        }
+
+        .faq-mini p {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini .q {
+            font-weight: 500;
+            color: #6b5f50;
+        }
+
+        /* 自然链接段落 */
+        .link-paragraph {
+            background: #fcf9f4;
+            padding: 1.2rem 1.6rem;
+            border-radius: 40px 8px 40px 8px;
+            margin: 2rem 0 1.2rem 0;
+            font-size: 1rem;
+            border: 1px solid #e6ddd0;
+        }
+
+        a {
+            color: #7d6b52;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c9b9a4;
+            transition: all 0.15s;
+        }
+
+        a:hover {
+            color: #4f3f2e;
+            text-decoration-color: #7d6b52;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: #948a7c;
+            text-align: center;
+            border-top: 1px solid #e2d9cb;
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e6ddd0;
+            margin: 0.6rem 0;
+        }
+
+        .inline-code {
+            background: #efe9df;
+            padding: 0.1rem 0.5rem;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #4c443b;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 主视觉 -->
+    <div class="hero">
+        <h1>易游体育 · 简明访问指南</h1>
+        <div class="sub">信息卡片式介绍 · 面向认真整理的访问者</div>
+    </div>
+
+    <!-- 用途卡片 + 适合人群 (两栏) -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 主要用途</h3>
+            <ul>
+                <li>了解体育项目动态与基础资讯</li>
+                <li>查看活动、赛事相关的整理内容</li>
+                <li>获取平台功能与使用说明</li>
+                <li>浏览常见问题与操作提醒</li>
+            </ul>
+        </div>
+        <div class="card card-attention">
+            <h3>👥 适合人群</h3>
+            <ul>
+                <li>初次接触的新用户</li>
+                <li>需要快速了解站内结构的访客</li>
+                <li>对体育资讯有日常查阅需求的人</li>
+                <li>希望获得清晰指引的使用者</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="note-block">
+        <strong>📌 访问提醒</strong> —— 
+        本页面仅为介绍页，所有信息均基于公开整理。若你希望直接浏览主体内容，建议在浏览器中直接输入资源地址，或通过已有书签导航。<br>
+        页面内容保持克制，不包含诱导性表述，请放心阅读。
+    </div>
+
+    <!-- 自然链接段落 (关键) -->
+    <div class="link-paragraph">
+        如果你对体育资讯、平台功能或使用背景有进一步兴趣，可以前往 
+        <a href="https://office-yysports.com">易游体育</a> 
+        浏览更完整的页面内容。该站点提供了结构化的信息模块，适合日常参考与检索。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h4>📖 常见问题摘要</h4>
+        <p><span class="q">问：</span> 如何快速找到体育项目分类？<br>
+        <span class="q">答：</span> 站内通常设有导航栏或卡片入口，可按类别浏览。</p>
+        <p><span class="q">问：</span> 是否需要注册才能阅读？<br>
+        <span class="q">答：</span> 大部分介绍性内容可直接访问，部分功能或需账户支持，以实际页面说明为准。</p>
+        <p><span class="q">问：</span> 信息更新频率如何？<br>
+        <span class="q">答：</span> 建议定期浏览，以获取最新整理内容。平台会根据实际情况调整模块。</p>
+        <hr>
+        <p style="font-size:0.9rem; color:#6b5f50; margin-top:0.4rem;">💡 更多细节请直接参考站内指南或帮助板块。</p>
+    </div>
+
+    <!-- 补充说明卡片 (单列) 内容更丰富 -->
+    <div style="margin: 1.2rem 0 1.6rem 0; background: #faf5ed; border-radius: 24px; padding: 1.2rem 1.6rem;">
+        <p style="font-size:0.98rem;"><strong>🔍 关于本页</strong> —— 以信息卡片和简明提醒为结构，方便快速了解用途与访问方式。所有内容均基于真实可读的说明立场，不包含虚构承诺或诱导性表述。若你需要更具体的操作指引，可直接在 <a href="https://office-yysports.com">易游体育</a> 站内查找对应条目。</p>
+    </div>
+
+    <!-- 可选的节奏变化：小提示 -->
+    <div style="display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; background: #f4ede3; border-radius: 30px; padding: 0.8rem 1.2rem; margin: 2rem 0 0.8rem 0;">
+        <span style="font-weight: 500; color:#5a4f41;">⏱️ 访问节奏建议</span>
+        <span style="color:#5f5546;">先概览用途 → 再了解人群 → 最后查阅 FAQ，可减少重复搜索。</span>
+    </div>
+
+    <!-- 引用块 (第二个，风格微变) -->
+    <div style="background: #f1eae0; border-radius: 18px; padding: 1rem 1.4rem; border-left: 5px solid #bcab93; margin: 1.6rem 0;">
+        <p style="font-style: italic; color: #4d443a;">“将信息整理成卡片与提醒，是为了让阅读更有条理。本站不替代官方公告，仅作为辅助介绍。” </p>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>内容整理 · 面向普通访问者</span><br>
+        <span style="font-size:0.75rem; color:#b1a695;">无诱导链接 · 无夸张表述</span>
+    </div>
+
+</div>
+</body>
+</html>
