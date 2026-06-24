@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 信息卡片参考页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f5f7fb;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
+      color: #1e2a3a;
+    }
+
+    /* --- 深色头图 --- */
+    .hero {
+      background: linear-gradient(145deg, #0b1726 0%, #1e2f43 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      color: #f0f4fa;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: 0.8;
+      font-weight: 300;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.3rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      font-size: 0.85rem;
+      color: #cbdae9;
+      letter-spacing: 0.5px;
+    }
+
+    /* --- 浅色正文区 --- */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* section 间距 */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      font-weight: 450;
+      margin-bottom: 1.2rem;
+      color: #1d2b3b;
+      border-left: 4px solid #2b6c9e;
+      padding-left: 0.9rem;
+    }
+
+    .section p {
+      margin-bottom: 1.2rem;
+      color: #2c3f53;
+    }
+
+    /* --- 卡片网格（用途/人群） --- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.6rem;
+      margin: 1.8rem 0;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 1.6rem 1.2rem;
+      box-shadow: 0 6px 16px rgba(0, 20, 40, 0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid #eef2f6;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 20, 40, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #1a2b3b;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #3e5368;
+      margin-bottom: 0;
+    }
+
+    .card .emoji-line {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    /* --- 强调色链接 --- */
+    a {
+      color: #1e6b9e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover {
+      border-bottom-color: #1e6b9e;
+    }
+
+    /* 正文区内的自然链接 */
+    .text-link-em {
+      color: #1e6b9e;
+    }
+
+    /* --- 提示块 / faq风格 --- */
+    .tip-block {
+      background: #edf3fa;
+      border-left: 5px solid #2b6c9e;
+      padding: 1.2rem 1.6rem;
+      border-radius: 0 12px 12px 0;
+      margin: 1.8rem 0;
+    }
+
+    .tip-block p {
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-summary {
+      margin-top: 1.2rem;
+    }
+
+    .faq-summary details {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      margin-bottom: 0.6rem;
+      border: 1px solid #e2e9f0;
+    }
+
+    .faq-summary details summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #1e3a54;
+    }
+
+    .faq-summary details p {
+      margin-top: 0.6rem;
+      padding-left: 0.4rem;
+      color: #34506b;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce4ed;
+      margin: 2.2rem 0;
+    }
+
+    /* --- 响应式 --- */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        padding: 3.2rem 1.2rem 2.8rem;
+      }
+
+      .section h2 {
+        font-size: 1.5rem;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>信息卡片 · 爱游戏</h1>
+    <p>一种日常查询与对照的方式，不强调门户，只在意内容本身是否清晰可读。</p>
+    <span class="badge">叙述 · 卡片 · 延伸阅读</span>
+  </header>
+
+  <!-- 正文区：浅色背景 -->
+  <main class="container">
+
+    <!-- 主视觉 / 简述 -->
+    <div class="section">
+      <h2>主视觉 · 从一次日常查询开始</h2>
+      <p>某个周末下午，你想了解最近几场体育赛事的积分变化——不是为了下结论，只是想在零碎时间里完成一次对照。打开浏览器，在地址栏输入一个你熟悉的站点，比如 <a href="https://sport-portal-igame.com">爱游戏</a>，然后开始在信息流里寻找你需要的那几行数据。</p>
+      <p>这种日常查询并不需要太多修饰：一个清晰的导航、一组分类卡片、简洁的列表。我们往往低估了“找到信息”这件事本身的愉悦感。从这个角度说，一个信息组织得体的体育聚合页，其实也是一种安静的陪伴。</p>
+    </div>
+
+    <!-- 用途卡片 -->
+    <div class="section">
+      <h2>用途 · 对照、记录与延伸</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="emoji-line">📋</span>
+          <h3>数据对照</h3>
+          <p>同时查看多组比分、赛程或排名，无需频繁切换页面。适合横向比较与分析。</p>
+        </div>
+        <div class="card">
+          <span class="emoji-line">📌</span>
+          <h3>快速备忘</h3>
+          <p>把关注的联赛或队伍固定到卡片区，下次打开时一目了然，省去反复检索。</p>
+        </div>
+        <div class="card">
+          <span class="emoji-line">🔗</span>
+          <h3>延伸阅读</h3>
+          <p>从一条比分出发，顺藤摸瓜找到相关赛事回顾、数据统计或赛后评论，拓宽信息面。</p>
+        </div>
+        <div class="card">
+          <span class="emoji-line">🧩</span>
+          <h3>日常索引</h3>
+          <p>就像一本可以随时翻阅的手册，不追求全面，但求每一条信息都触手可及。</p>
+        </div>
+      </div>
+      <p>卡片式布局在这里的作用，是把零散的信息碎片归置到合适的框架里，既保留各自独立性，又方便整体浏览。当你只想快速确认一两项数据时，这种结构会显得尤其友好。</p>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="section">
+      <h2>适合谁 · 沉默的多数读者</h2>
+      <p>这个页面和它所指向的站点，更适合那些不爱张扬、但习惯定期查阅体育消息的人。你可能并不是重度球迷，只是习惯于在午休或者通勤路上，花五分钟更新一下自己的“体育知识库”。</p>
+      <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="card">
+          <h3>🏟️ 日常观赛者</h3>
+          <p>只看关键比赛，但希望赛前能快速了解双方近况、核心数据。</p>
+        </div>
+        <div class="card">
+          <h3>📊 数据爱好者</h3>
+          <p>比起直播画面，更在意数字变化和趋势图表，爱做横向比对。</p>
+        </div>
+        <div class="card">
+          <h3>🧭 信息收集者</h3>
+          <p>习惯把不同来源的内容汇集到一起，建立自己的参考体系。</p>
+        </div>
+        <div class="card">
+          <h3>🤫 低调常客</h3>
+          <p>不参与争论，只静静阅读，享受一个人掌握信息的节奏。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="section">
+      <h2>延伸阅读 · 不止一个入口</h2>
+      <p>前面提到过，日常查询不需要繁复的仪式感。如果你想试试这种“卡片式对照”的体验，可以打开 <a href="https://sport-portal-igame.com">爱游戏</a>，从首页的赛程卡片开始，依次浏览你感兴趣的项目。我个人习惯先看当日的焦点赛事列表，再点进某一项查看历史交锋——这个过程很像翻阅一本设计良好的手册，每一页都相互独立，又彼此关联。</p>
+      <p>除了电脑端，移动端的响应式设计也让碎片化阅读更加自然。你可以在手机浏览器里直接打开上述网址，卡片会自动调整为单列布局，阅读体验不会打折。信息密度没有变，只是呈现方式随之适应。</p>
+      <div class="tip-block">
+        <p><strong>一个小提示：</strong> 如果你发现自己总是在几个固定板块之间切换，不妨把它们记在书签里，或者使用浏览器的“标签组”功能分组保存。这样做，下次查询时会更省力。</p>
+      </div>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section">
+      <h2>常见思路 · 而非常见问题</h2>
+      <p>以下几条来自一些朋友的使用反馈，它们不算严格意义上的“问题”，更像是初次接触这类信息卡片时的一些想法。</p>
+      <div class="faq-summary">
+        <details>
+          <summary>卡片上的数据更新频率如何？</summary>
+          <p>通常和源站保持一致，大部分比分和排名每几分钟刷新一次。具体延迟取决于数据接口，但日常查询几乎感觉不到滞后。</p>
+        </details>
+        <details>
+          <summary>我能不能只看某一类运动？</summary>
+          <p>可以。使用导航栏的筛选或分类标签，就能把卡片范围缩小到你关注的领域。这也是卡片式结构的优势之一。</p>
+        </details>
+        <details>
+          <summary>这些信息能导出或分享吗？</summary>
+          <p>部分卡片支持复制链接或分享片段，但更推荐直接在站内对照阅读。毕竟卡片就是为了快速浏览而设计的。</p>
+        </details>
+        <details>
+          <summary>为什么选择卡片而不是列表？</summary>
+          <p>卡片的视觉权重更平均，方便同时关注多个条目；列表则更适合纵向阅读大量同质内容。二者没有优劣，只是本页面偏向卡片的灵活感。</p>
+        </details>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- 页脚样式的简短收尾 -->
+    <footer style="text-align: center; color: #6a7f96; font-size: 0.9rem; padding: 1rem 0 0.5rem;">
+      <p>内容整理自日常查询习惯 · 保持开放，保持克制</p>
+      <p style="margin-top: 0.2rem;">— 信息卡片式索引 —</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
